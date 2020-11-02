@@ -73,7 +73,7 @@ def find_winning(num):
 
 
 def declare_number():  # basically just a macro
-    print "The number is {}.".format(initial)
+    print "The number is {}".format(initial)
 
 
 initial = random.normalvariate(5000, 750)  # basically never get a small number
@@ -89,7 +89,7 @@ while count < 10500:  # 10500 is an auspicious number
 end = time.clock() - begin  # rudimentary timing, works though
 if NEWPLAYER:
     time.sleep(10 - end)  # to read the rules and comprehend
-print "Memoization took {} seconds.".format(end)
+print "Memoization took {} seconds".format(end)
 
 # losing.memo should be big enough now
 player_first = 'n' not in raw_input("Wanna go first? ")
@@ -100,7 +100,7 @@ if not player_first:
         small_win = small_win if small_win else 1  # we can't be subtracting 0
     else:  # newbie play
         small_win = sqrt(initial)**2  # largest square, guaranteed to not be 0
-    print "Subtracting {}^2 = {}.".format(sqrt(small_win), small_win)
+    print "Subtracting {}^2 = {}".format(sqrt(small_win), small_win)
     initial -= small_win
     declare_number()
 
@@ -108,11 +108,11 @@ while initial > 0:
     # player's turn
     number = int(float(raw_input("Enter the square you want to subtract. ")))
     if number ** 2 > initial:  # the cheek!
-        print "Too big, assuming you meant {}.".format(sqrt(initial))
+        print "Too big, assuming you meant {}".format(sqrt(initial))
         number = sqrt(initial)
     if number < 1:  # must not be zero, don't get any clever ideas
         number = 1
-    print "Subtracting {}^2 = {}.".format(number, number ** 2)
+    print "Subtracting {}^2 = {}".format(number, number ** 2)
     initial -= number ** 2  # the customer is always right?
     if not initial:
         player_won = True  # ughhhhh
@@ -124,7 +124,7 @@ while initial > 0:
     else:
         small_win = sqrt(initial)**2  # largest square
     initial -= small_win
-    print "Subtracting {}^2 = {}.".format(sqrt(small_win), small_win)
+    print "Subtracting {}^2 = {}".format(sqrt(small_win), small_win)
     declare_number()
     if not initial:
         player_won = False  # we win!
